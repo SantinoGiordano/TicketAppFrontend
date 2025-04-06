@@ -1,10 +1,15 @@
-import Nav from "../components/Nav"
-
+import CarouselTop from "../components/CarouselTop";
+import Nav from "../components/Nav";
 
 const Home = () => {
   return (
-    <Nav/>
-  )
-}
+    <>
+      <Nav />
+      <CarouselTop/>
+      
 
-export default Home
+    </>
+  );
+};
+
+export default Home;
