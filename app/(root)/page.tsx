@@ -1,9 +1,9 @@
+import Nav from "../components/Nav"
 
 
 const Home = () => {
   return (
-
-    <button className="btn btn-warning">Warning</button>
+    <Nav/>
   )
 }
 
