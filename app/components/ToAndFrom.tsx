@@ -22,25 +22,32 @@ const DropdownInput = () => {
   };
 
   return (
-    <div className="p-10 flex flex-col sm:flex-row items-center gap-4 bg-base-100 rounded-xl w-full max-w-md relative">
-      <input
-        type="text"
-        value={selectedItem}
-        placeholder="From Station"
-        className="input input-bordered w-full"
-        onFocus={() => setIsOpen(true)}
-        readOnly
-      />
+    <div className="relative flex justify-center items-center py-10">
+      <div className="w-full max-w-md">
+        <input
+          type="text"
+          value={selectedItem}
+          placeholder="From Station"
+          className="w-full px-4 py-2 text-black bg-blue-50 border border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+          onFocus={() => setIsOpen(true)}
+          readOnly
+        />
 
-      {isOpen && (
-        <ul className="menu bg-base-100 rounded-box z-10 w-full mt-2 shadow absolute top-full left-0">
-          {stations.map((station, index) => (
-            <li key={index}>
-              <a onClick={() => handleSelectItem(station)}>{station}</a>
-            </li>
-          ))}
-        </ul>
-      )}
+        {isOpen && (
+          <ul className="absolute z-20 w-64 mt-2 bg-white border border-black rounded-md shadow-lg max-h-60 overflow-y-auto">
+            {stations.map((station, index) => (
+              <li key={index}>
+                <button
+                  onClick={() => handleSelectItem(station)}
+                  className="w-full text-left px-4 py-2 hover:bg-blue-100 hover:text-blue-700 transition"
+                >
+                  {station}
+                </button>
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
     </div>
   );
 };
