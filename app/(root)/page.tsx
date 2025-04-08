@@ -1,4 +1,5 @@
 "use client";
+// import DepartureDate from "../components/DepartureDate";
 import ImageBanner from "../components/ImageBanner";
 import Nav from "../components/Nav";
 import DropdownInput from "../components/ToAndFrom";
@@ -11,6 +12,7 @@ const Home = () => {
         <DropdownInput />
         To
         <DropdownInput />
+        {/* <DepartureDate/> */}
       </div>
 
       <div className="bg-blue-100">
