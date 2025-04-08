@@ -24,25 +24,31 @@ const ImageBanner = () => {
   ];
 
   return (
-    <div className="flex gap-6 justify-center items-start p-4 flex-wrap">
+    <div className="flex flex-wrap justify-center gap-10 px-6 py-12 bg-blue-100">
       {cards.map((item, index) => (
-        <div key={index} className="flex flex-col items-center max-w-[400px]">
-          {/* Image Card */}
-          <div className="relative w-full h-[300px] rounded-xl overflow-hidden group shadow-md hover:shadow-xl transition-shadow duration-300">
+        <div
+          key={index}
+          className="w-full sm:w-[300px] md:w-[350px] lg:w-[400px] flex flex-col items-center"
+        >
+          {/* Card Container */}
+          <div className="relative w-full h-[250px] md:h-[300px] rounded-2xl overflow-hidden shadow-lg group transition-shadow hover:shadow-2xl">
             <Image
               src={item.src}
               alt={item.alt}
               layout="fill"
               objectFit="cover"
-              className="rounded-xl transition-transform duration-500 group-hover:scale-105"
+              className="transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl transition-opacity duration-300 group-hover:from-black/100" />
-            <div className="absolute bottom-3 left-3 text-white text-2xl font-semibold z-10 transition-transform duration-300 group-hover:scale-105">
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl transition duration-300 group-hover:from-black/90" />
+            <div className="absolute bottom-4 left-4 text-white text-xl sm:text-2xl font-semibold z-10">
               {item.label}
             </div>
           </div>
-          {/* Filler Text */}
-          <p className="mt-4 text-center text-sm text-gray-700">{item.text}</p>
+
+          {/* Description */}
+          <p className="mt-4 px-2 text-center text-gray-800 text-sm sm:text-base leading-relaxed">
+            {item.text}
+          </p>
         </div>
       ))}
     </div>
