@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const stations = [
   "New York Penn Station (NYP)",
@@ -12,8 +12,13 @@ const stations = [
   "Seattle King Street Station (SEA)",
 ];
 
-const DropdownInput = () => {
-  const [selectedItem, setSelectedItem] = useState('');
+// Update the DropdownInput component to accept 'label' as a prop
+interface DropdownInputProps {
+  label: string;
+}
+
+const DropdownInput: React.FC<DropdownInputProps> = ({ label }) => {
+  const [selectedItem, setSelectedItem] = useState("");
   const [isOpen, setIsOpen] = useState(false);
 
   const handleSelectItem = (item: string) => {
@@ -24,10 +29,14 @@ const DropdownInput = () => {
   return (
     <div className="relative flex justify-center items-center py-10">
       <div className="">
+        <label className="block text-sm font-medium text-gray-700">
+          {label}
+        </label>
+
         <input
           type="text"
           value={selectedItem}
-          placeholder="From Station"
+          placeholder="Select Station"
           className="w-full px-4 py-2 text-black bg-blue-50 border border-black rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
           onFocus={() => setIsOpen(true)}
           readOnly
