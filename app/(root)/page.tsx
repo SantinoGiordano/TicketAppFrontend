@@ -11,7 +11,7 @@ const Home = () => {
       <Nav />
       <CarouselTop />
       <div className="bg-gray-100 py-10 px-4">
-        <div className="max-w-4xl mx-auto bg-white rounded-xl shadow-lg p-6 flex flex-col sm:flex-row sm:items-center gap-6">
+        <div className="max-w-4xl mx-auto p-6 flex flex-col sm:flex-row sm:items-center gap-6">
           <div className="w-full sm:w-1/2">
             <DropdownInput label="From Station" />
           </div>
