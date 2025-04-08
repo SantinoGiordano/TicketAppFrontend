@@ -21,7 +21,7 @@ const ImageBanner = () => {
             objectFit="cover"
             className="rounded-xl transition-transform duration-500 group-hover:scale-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl transition-opacity duration-300 group-hover:from-black/70" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-xl transition-opacity duration-300 group-hover:from-black/100" />
           <div className="absolute bottom-3 left-3 text-white text-2xl font-semibold z-10 transition-transform duration-300 group-hover:scale-105">
             {item.label}
           </div>
