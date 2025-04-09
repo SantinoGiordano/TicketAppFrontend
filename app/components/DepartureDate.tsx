@@ -1,13 +1,19 @@
-'use client';
+"use client";
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from "react";
 
 // Allow custom element in JSX
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      'calendar-date': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
-      'calendar-month': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement>, HTMLElement>;
+      "calendar-date": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
+      "calendar-month": React.DetailedHTMLProps<
+        React.HTMLAttributes<HTMLElement>,
+        HTMLElement
+      >;
     }
   }
 }
@@ -17,7 +23,7 @@ const DepartureDate = () => {
   const calendarRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
-    import('cally').then(() => {
+    import("cally").then(() => {
       const calendar = calendarRef.current;
 
       const handleChange = (e: any) => {
@@ -25,12 +31,12 @@ const DepartureDate = () => {
       };
 
       if (calendar) {
-        calendar.addEventListener('change', handleChange);
+        calendar.addEventListener("change", handleChange);
       }
 
       return () => {
         if (calendar) {
-          calendar.removeEventListener('change', handleChange);
+          calendar.removeEventListener("change", handleChange);
         }
       };
     });
@@ -38,14 +44,13 @@ const DepartureDate = () => {
 
   return (
     <div className="relative">
-<button
-  popoverTarget="cally-popover1"
-  id="cally1"
-  className=" sm:w-64 px-6 py-2 text-sm font-medium border border-gray-400 rounded-lg hover:bg-gray-100 transition"
->
-  {date}
-</button>
-
+      <button
+        popoverTarget="cally-popover1"
+        id="cally1"
+        className=" sm:w-64 px-6 py-2 text-sm font-medium border border-gray-400 rounded-lg hover:bg-gray-100 transition"
+      >
+        {date}
+      </button>
 
       <div
         popover="auto"
