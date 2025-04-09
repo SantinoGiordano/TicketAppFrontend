@@ -7,7 +7,6 @@ const CarouselTop = () => {
   return (
     <div className="max-w-screen mx-auto px-0">
       <div className="carousel w-full">
-        {/* Slide 1 */}
         <div id="slide1" className="carousel-item relative w-full h-[500px]">
           <Image
             src="/station.jpg"

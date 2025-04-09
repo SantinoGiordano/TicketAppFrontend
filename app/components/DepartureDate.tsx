@@ -1,85 +1,48 @@
-"use client";
-
-import React, { useEffect, useRef, useState } from "react";
-
-// Allow custom element in JSX
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      "calendar-date": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-      "calendar-month": React.DetailedHTMLProps<
-        React.HTMLAttributes<HTMLElement>,
-        HTMLElement
-      >;
-    }
-  }
-}
+import React from "react";
 
 const DepartureDate = () => {
-  const [date, setDate] = useState("Pick a date");
-  const calendarRef = useRef<HTMLElement | null>(null);
-
-  useEffect(() => {
-    import("cally").then(() => {
-      const calendar = calendarRef.current;
-
-      const handleChange = (e: any) => {
-        setDate(e.target.value);
-      };
-
-      if (calendar) {
-        calendar.addEventListener("change", handleChange);
-      }
-
-      return () => {
-        if (calendar) {
-          calendar.removeEventListener("change", handleChange);
-        }
-      };
-    });
-  }, []);
-
   return (
-    <div className="relative">
+    <>
       <button
         popoverTarget="cally-popover1"
+        className="input input-border"
         id="cally1"
-        className=" sm:w-64 px-6 py-2 text-sm font-medium border border-gray-400 rounded-lg hover:bg-gray-100 transition"
+        style="anchorName:--cally1"
       >
-        {date}
+        Pick a date
       </button>
-
       <div
-        popover="auto"
+        popover
         id="cally-popover1"
-        className="dropdown mt-2 bg-white p-4 rounded-xl shadow-xl border border-gray-200"
+        className="dropdown bg-base-100 rounded-box shadow-lg"
+        style="positionAnchor:--cally1"
       >
-        <calendar-date class="cally" ref={calendarRef}>
+        <calendar-date
+          class="cally"
+          onchange={(document.getElementById("cally1").innerText = this.value)}
+        >
           <svg
             aria-label="Previous"
-            className="fill-current w-4 h-4"
+            className="fill-current size-4"
             slot="previous"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
-            <path d="M15.75 19.5 8.25 12l7.5-7.5" />
+            <path d="M15.75 19.5 8.25 12l7.5-7.5"></path>
           </svg>
           <svg
             aria-label="Next"
-            className="fill-current w-4 h-4"
+            className="fill-current size-4"
             slot="next"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
-            <path d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            <path d="m8.25 4.5 7.5 7.5-7.5 7.5"></path>
           </svg>
           <calendar-month></calendar-month>
         </calendar-date>
       </div>
-    </div>
+    </>
   );
 };
 
